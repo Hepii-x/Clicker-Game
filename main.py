@@ -1,21 +1,21 @@
 import pygame as pyg
 from settings import Settings
-from terminal import Terminal
+from graphics import Graphics
 from sys import exit
 from threading import Thread
 from time import sleep
 
-class DeathlyMind:
+class Main:
     def __init__(self):
         pyg.init()
         self.settings = Settings()
 
 
         self.screen = pyg.display.set_mode((self.settings.screen_height, self.settings.screen_width))
-        pyg.display.set_caption('Deathly Mind')
+        pyg.display.set_caption('Clicker')
 
 
-        self.terminal = Terminal(self)
+        self.graphics = Graphics(self)
 
     def run_game(self):
         while True:
@@ -31,20 +31,20 @@ class DeathlyMind:
                 exit()
             elif event.type == pyg.MOUSEBUTTONDOWN:
                 x, y = event.pos
-                if self.terminal.b1.collidepoint(x,y):
-                    self.terminal.increase_score()
-                elif self.terminal.b2.collidepoint(x,y):
-                    self.terminal.increase_multiplier()
-                elif self.terminal.b3.collidepoint(x,y):
-                    self.terminal.increase_passive()
+                if self.graphics.b1.collidepoint(x,y):
+                    self.graphics.increase_score()
+                elif self.graphics.b2.collidepoint(x,y):
+                    self.graphics.increase_multiplier()
+                elif self.graphics.b3.collidepoint(x,y):
+                    self.graphics.increase_passive()
 
     def _update_screen(self):
         self.screen.fill(self.settings.bg_color)
-        self.terminal.terminal_run()
+        self.graphics.run()
         pyg.display.flip()
 
 if __name__ == '__main__':
-    game = DeathlyMind()
+    game = Main()
     game.run_game()
 
 

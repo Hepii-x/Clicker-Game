@@ -3,7 +3,7 @@ from settings import Settings
 
 
 
-class Terminal:
+class Graphics:
     def __init__(self, game):
         self.settings = Settings()
         self.screen = game.screen
@@ -58,7 +58,7 @@ class Terminal:
             self.settings.upgrade_passive_cost += 2
             self.settings.passive += 1
 
-    def terminal_run(self):
+    def run(self):
         self.draw()
         self.draw_button1()
         self.draw_button2()
