@@ -4,11 +4,13 @@ from graphics import Graphics
 from sys import exit
 from threading import Thread
 from time import sleep
+from upgrades import Upgrades
 
 class Main:
     def __init__(self):
         pyg.init()
         self.settings = Settings()
+        self.upgrades = Upgrades()
 
 
         self.screen = pyg.display.set_mode((self.settings.screen_height, self.settings.screen_width))
@@ -20,6 +22,7 @@ class Main:
     def run_game(self):
         while True:
             self._event_loop()
+            # self.upgrades.run()
             self._update_screen()
 
 
@@ -32,7 +35,8 @@ class Main:
             elif event.type == pyg.MOUSEBUTTONDOWN:
                 x, y = event.pos
                 if self.graphics.b1.collidepoint(x,y):
-                    self.graphics.increase_score()
+                    self.upgrades.increase_score()
+                    self._update_screen()
                 elif self.graphics.b2.collidepoint(x,y):
                     self.graphics.increase_multiplier()
                 elif self.graphics.b3.collidepoint(x,y):

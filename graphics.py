@@ -1,6 +1,6 @@
 import pygame as pyg
 from settings import Settings
-
+from upgrades import Upgrades
 
 
 class Graphics:
@@ -10,6 +10,7 @@ class Graphics:
         self.screen_rect = game.screen.get_rect()
         self.rect = (0,0, 1280, 550)
         self.font = pyg.font.SysFont('Arial', 72)
+        self.upgrades = Upgrades()
 
     def draw_text(self):
         self.score = self.font.render(str(self.settings.score), True, (255,255,255))
@@ -37,26 +38,24 @@ class Graphics:
     def draw_button3(self):
         self.b3 = pyg.draw.rect(self.screen, color=self.settings.upgrade_passive_button_color, rect=(100,599, 162,74))
 
-    def increase_score(self):
-        self.settings.score += self.settings.multiplier
-        self.settings.score = round(self.settings.score, 1)
-        print(self.settings.score)
+
 
     def increase_multiplier(self):
         if self.settings.score < self.settings.upgrade_cost:
             pass
         else:
             self.settings.score -= self.settings.upgrade_cost
-            self.settings.upgrade_cost *= 2
-            self.settings.multiplier += 1
+            self.settings.upgrade_cost += 2
+            self.settings.multiplier *= 1.25
 
     def increase_passive(self):
         if self.settings.score < self.settings.upgrade_passive_cost:
             pass
         else:
             self.settings.score -= self.settings.upgrade_passive_cost
-            self.settings.upgrade_passive_cost += 2
-            self.settings.passive += 1
+            self.settings.score = round(self.settings.score, 0)
+            self.settings.upgrade_passive_cost += 1.5
+            self.settings.passive += 20
 
     def run(self):
         self.draw()
@@ -84,3 +83,11 @@ class Graphics:
         if current_time > self.settings.time_shit:
             self.settings.time_shit = current_time + 1000
             self.settings.score += self.settings.passive
+            self.settings.score = round(self.settings.score, 0)
+
+
+    def increase_score(self):
+        self.settings.score += self.settings.multiplier
+        self.settings.score = round(self.settings.score, 0)
+        print(self.settings.score)
+
