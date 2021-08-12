@@ -1,31 +1,30 @@
 import pygame as pyg
-from settings import Settings
+import settings
+import upgradesettings as settupg
+
+
+
 
 
 class Upgrades():
-    def __init__(self):
-        self.settings = Settings()
-
-    # def run(self):
-
 
     def increase_score(self):
-        self.settings.score += self.settings.multiplier
-        self.settings.score = round(self.settings.score, 1)
-        print(self.settings.score)
+        settupg.score += settupg.multiplier_click
+        settupg.score = round(settupg.score, 1)
+        print(settupg.score)
 
     def increase_passive(self):
-        if self.settings.score < self.settings.upgrade_passive_cost:
+        if settupg.score < settupg.upgrade_passive_cost:
             pass
         else:
-            self.settings.score -= self.settings.upgrade_passive_cost
-            self.settings.upgrade_passive_cost += 2
-            self.settings.passive += 1
+            settupg.score -= settupg.upgrade_passive_cost
+            settupg.passive_income += 2
+            settupg.upgrade_passive_cost *= 1.5
 
     def increase_multiplier(self):
-        if self.settings.score < self.settings.upgrade_cost:
+        if settupg.score < settupg.upgrade_cost_click:
             pass
         else:
-            self.settings.score -= self.settings.upgrade_cost
-            self.settings.upgrade_cost *= 2
-            self.settings.multiplier *= 1
+            settupg.score -= settupg.upgrade_cost_click
+            settupg.multiplier_click += 2
+            settupg.upgrade_cost_click *= 1.5

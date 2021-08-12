@@ -1,7 +1,8 @@
 import pygame as pyg
 from settings import Settings
 from upgrades import Upgrades
-
+import settings, upgrades
+import upgradesettings as settupg
 
 class Graphics:
     def __init__(self, game):
@@ -13,10 +14,13 @@ class Graphics:
         self.upgrades = Upgrades()
 
     def draw_text(self):
-        self.score = self.font.render(str(self.settings.score), True, (255,255,255))
+        text_score = str(int(round(settupg.score, 1)))
+        text_upgrade_click_cost = str(int(round(settupg.upgrade_cost_click, 1)))
+        text_passive_cost = str(int(round(settupg.upgrade_passive_cost, 1)))
+        self.score = self.font.render(text_score, True, (255,255,255))
         self.clickme = self.font.render('Click me', True, (255,255,255))
-        self.upgrade_cost = self.font.render(str(self.settings.upgrade_cost), True, (255,255,255))
-        self.passive_cost = self.font.render(str(self.settings.upgrade_passive_cost), True, (255,255,255))
+        self.upgrade_cost = self.font.render(text_upgrade_click_cost, True, (255,255,255))
+        self.passive_cost = self.font.render(text_passive_cost, True, (255,255,255))
 
         # self.multiplier = self.font.render(str(self.settings.multiplier), True, (255,255,255))
         self.screen.blit(self.score, (575, 197))
@@ -38,24 +42,10 @@ class Graphics:
     def draw_button3(self):
         self.b3 = pyg.draw.rect(self.screen, color=self.settings.upgrade_passive_button_color, rect=(100,599, 162,74))
 
+    def test_func(self):
+        print(settupg.score)
 
 
-    def increase_multiplier(self):
-        if self.settings.score < self.settings.upgrade_cost:
-            pass
-        else:
-            self.settings.score -= self.settings.upgrade_cost
-            self.settings.upgrade_cost += 2
-            self.settings.multiplier *= 1.25
-
-    def increase_passive(self):
-        if self.settings.score < self.settings.upgrade_passive_cost:
-            pass
-        else:
-            self.settings.score -= self.settings.upgrade_passive_cost
-            self.settings.score = round(self.settings.score, 0)
-            self.settings.upgrade_passive_cost += 1.5
-            self.settings.passive += 20
 
     def run(self):
         self.draw()
@@ -69,11 +59,11 @@ class Graphics:
 
 
     def _check_upgrade(self):
-        if self.settings.score < self.settings.upgrade_cost:
+        if settupg.score < settupg.upgrade_cost_click:
             self.settings.upgrade_button_color = (255,0,0)
         else:
             self.settings.upgrade_button_color = (0,255,0)
-        if self.settings.score < self.settings.upgrade_passive_cost:
+        if settupg.score < settupg.upgrade_passive_cost:
             self.settings.upgrade_passive_button_color = (255,0,0)
         else:
             self.settings.upgrade_passive_button_color = (0,255,0)
@@ -82,12 +72,8 @@ class Graphics:
         current_time = pyg.time.get_ticks()
         if current_time > self.settings.time_shit:
             self.settings.time_shit = current_time + 1000
-            self.settings.score += self.settings.passive
-            self.settings.score = round(self.settings.score, 0)
+            settupg.score += settupg.passive_income
+            settupg.score = round(settupg.score, 1)
 
 
-    def increase_score(self):
-        self.settings.score += self.settings.multiplier
-        self.settings.score = round(self.settings.score, 0)
-        print(self.settings.score)
 

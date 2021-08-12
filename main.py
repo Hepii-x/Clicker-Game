@@ -2,8 +2,6 @@ import pygame as pyg
 from settings import Settings
 from graphics import Graphics
 from sys import exit
-from threading import Thread
-from time import sleep
 from upgrades import Upgrades
 
 class Main:
@@ -36,11 +34,11 @@ class Main:
                 x, y = event.pos
                 if self.graphics.b1.collidepoint(x,y):
                     self.upgrades.increase_score()
-                    self._update_screen()
+                    self.graphics.test_func()
                 elif self.graphics.b2.collidepoint(x,y):
-                    self.graphics.increase_multiplier()
+                    self.upgrades.increase_multiplier()
                 elif self.graphics.b3.collidepoint(x,y):
-                    self.graphics.increase_passive()
+                    self.upgrades.increase_passive()
 
     def _update_screen(self):
         self.screen.fill(self.settings.bg_color)
