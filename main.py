@@ -32,13 +32,9 @@ class Main:
                 exit()
             elif event.type == pyg.MOUSEBUTTONDOWN:
                 x, y = event.pos
-                if self.graphics.b1.collidepoint(x,y):
+                if self.graphics.rock_rect.collidepoint(x,y):
                     self.upgrades.increase_score()
-                    self.graphics.test_func()
-                elif self.graphics.b2.collidepoint(x,y):
-                    self.upgrades.increase_multiplier()
-                elif self.graphics.b3.collidepoint(x,y):
-                    self.upgrades.increase_passive()
+
 
     def _update_screen(self):
         self.screen.fill(self.settings.bg_color)
