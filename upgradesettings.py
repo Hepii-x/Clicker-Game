@@ -36,32 +36,32 @@ amethyst_pickaxe = 0
 
 
 
-iron_ore_cost = 3
-iron_pickaxe_cost = 10
+iron_ore_cost = 5
+iron_pickaxe_cost = 17
 
-copper_ore_cost = 36
-copper_pickaxe_cost = 85
+copper_ore_cost = 63
+copper_pickaxe_cost = 148
 
-silver_ore_cost = 201
-silver_pickaxe_cost = 475
+silver_ore_cost = 351
+silver_pickaxe_cost = 831
 
-gold_ore_cost = 1124
-gold_pickaxe_cost = 2660
+gold_ore_cost = 1967
+gold_pickaxe_cost = 4655
 
-diamond_ore_cost = 6297
-diamond_pickaxe_cost = 14907
+diamond_ore_cost = 11019
+diamond_pickaxe_cost = 26087
 
-emerald_ore_cost = 35290
-emerald_pickaxe_cost = 83544
+emerald_ore_cost = 61757
+emerald_pickaxe_cost = 146202
 
-rubin_ore_cost = 197779
-rubin_pickaxe_cost = 468214
+rubin_ore_cost = 346113
+rubin_pickaxe_cost = 819374
 
-jadeit_ore_cost = 1108432
-jadeit_pickaxe_cost = 2624061
+jadeit_ore_cost = 1939756
+jadeit_pickaxe_cost = 4592106
 
-amethyst_ore_cost = 6212106
-amethyst_pickaxe_cost = 14706314
+amethyst_ore_cost = 10871185
+amethyst_pickaxe_cost = 25736049
 
 
 

@@ -1,7 +1,7 @@
 import pygame as pyg
 from settings import Settings
 from graphics import Graphics
-from sys import exit
+from sys import exit, settrace
 from upgrades import Upgrades
 
 class Main:
@@ -37,7 +37,8 @@ class Main:
 
                 elif self.graphics.iron_ore_rect.collidepoint(x,y):
                     self.upgrades.buy_iron_ore()
-                    print('Iron ore')
+
+
 
                 elif self.graphics.copper_ore_rect.collidepoint(x,y):
                     print('Copper ore')

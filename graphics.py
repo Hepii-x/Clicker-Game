@@ -1,3 +1,4 @@
+from typing import Text
 import pygame as pyg
 from settings import Settings
 from upgrades import Upgrades
@@ -13,7 +14,7 @@ class Graphics:
         self.upgrades = Upgrades()
 
     def draw_text(self):
-        text_score = str(int(round(settupg.score, 1)))
+        text_score = self.format_text(settupg.score)
         text_upgrade_click_cost = str(int(round(settupg.upgrade_cost_click, 1)))
         text_font = pyg.font.Font('ui/etc/m6x11.ttf',64)
         stroke_font = pyg.font.Font('ui/etc/m6x11.ttf',65)
@@ -88,14 +89,96 @@ class Graphics:
 
     def draw_ore_cost(self):
         font = pyg.font.Font('ui/etc/m6x11.ttf',38)
-        stroke_font = pyg.font.Font('ui/etc/m6x11.ttf',40)
-        
-        text = str(int(round(settupg.iron_ore_cost, 1)))
+        stroke_font = pyg.font.Font('ui/etc/m6x11.ttf',39)
 
-        self.iron_ore_cost = font.render(f'{str(text)}', True, (255,255,255))
-        self.iron_ore_cost_stroke = stroke_font.render(f'{str(text)}', True, (0,0,0))
+        iron_ore_text = self.format_text(settupg.iron_ore_cost)
+        copper_ore_text = self.format_text(settupg.copper_ore_cost)
+        silver_ore_text = self.format_text(settupg.silver_ore_cost)
+        gold_ore_text = self.format_text(settupg.gold_ore_cost)
+        diamond_ore_text = self.format_text(settupg.diamond_ore_cost)
+        emerald_ore_text = self.format_text(settupg.emerald_ore_cost)
+        rubin_ore_text = self.format_text(settupg.rubin_ore_cost)
+        jadeit_ore_text = self.format_text(settupg.jadeit_ore_cost)
+        amethyst_ore_text = self.format_text(settupg.amethyst_ore_cost)
+
+
+        self.iron_ore_cost = font.render(f'{iron_ore_text}', True, (255,255,255))
+        self.iron_ore_cost_stroke = stroke_font.render(f'{iron_ore_text}', True, (0,0,0))
+
+        self.copper_ore_cost = font.render(f'{copper_ore_text}', True, (255,255,255))
+        self.copper_ore_cost_stroke = stroke_font.render(f'{copper_ore_text}', True, (0,0,0))
+
+        self.silver_ore_cost = font.render(f'{silver_ore_text}', True, (255,255,255))
+        self.silver_ore_cost_stroke = stroke_font.render(f'{silver_ore_text}', True, (0,0,0))
+
+        self.gold_ore_cost = font.render(f'{gold_ore_text}', True, (255,255,255))
+        self.gold_ore_cost_stroke = stroke_font.render(f'{gold_ore_text}', True, (0,0,0))
+
+        self.diamond_ore_cost = font.render(f'{diamond_ore_text}', True, (255,255,255))
+        self.diamond_ore_cost_stroke = stroke_font.render(f'{diamond_ore_text}', True, (0,0,0))
+
+        self.emerald_ore_cost = font.render(f'{emerald_ore_text}', True, (255,255,255))
+        self.emerald_ore_cost_stroke = stroke_font.render(f'{emerald_ore_text}', True, (0,0,0))
+
+        self.rubin_ore_cost = font.render(f'{rubin_ore_text}', True, (255,255,255))
+        self.rubin_ore_cost_stroke = stroke_font.render(f'{rubin_ore_text}', True, (0,0,0))
+
+        self.jadeit_ore_cost = font.render(f'{jadeit_ore_text}', True, (255,255,255))
+        self.jadeit_ore_cost_stroke = stroke_font.render(f'{jadeit_ore_text}', True, (0,0,0))
+
+        self.amethyst_ore_cost = font.render(f'{amethyst_ore_text}', True, (255,255,255))
+        self.amethyst_ore_cost_stroke = stroke_font.render(f'{amethyst_ore_text}', True, (0,0,0))
+
+    def draw_pickaxe_cost(self):
+        font = pyg.font.Font('ui/etc/m6x11.ttf',38)
+        stroke_font = pyg.font.Font('ui/etc/m6x11.ttf',39)
+
+        iron_pickaxe_text = self.format_text(settupg.iron_pickaxe_cost)
+        copper_pickaxe_text = self.format_text(settupg.copper_pickaxe_cost)
+        silver_pickaxe_text = self.format_text(settupg.silver_pickaxe_cost)
+        gold_pickaxe_text = self.format_text(settupg.gold_pickaxe_cost)
+        diamond_pickaxe_text = self.format_text(settupg.diamond_pickaxe_cost)
+        emerald_pickaxe_text = self.format_text(settupg.emerald_pickaxe_cost)
+        rubin_pickaxe_text = self.format_text(settupg.rubin_pickaxe_cost)
+        jadeit_pickaxe_text = self.format_text(settupg.jadeit_pickaxe_cost)
+        amethyst_pickaxe_text = self.format_text(settupg.amethyst_pickaxe_cost)
+
+
+        self.iron_pickaxe_cost = font.render(f'{iron_pickaxe_text}', True, (255,255,255))
+        self.iron_pickaxe_cost_stroke = stroke_font.render(f'{iron_pickaxe_text}', True, (0,0,0))
+
+        self.copper_pickaxe_cost = font.render(f'{copper_pickaxe_text}', True, (255,255,255))
+        self.copper_pickaxe_cost_stroke = stroke_font.render(f'{copper_pickaxe_text}', True, (0,0,0))
+
+        self.silver_pickaxe_cost = font.render(f'{silver_pickaxe_text}', True, (255,255,255))
+        self.silver_pickaxe_cost_stroke = stroke_font.render(f'{silver_pickaxe_text}', True, (0,0,0))
+
+        self.gold_pickaxe_cost = font.render(f'{gold_pickaxe_text}', True, (255,255,255))
+        self.gold_pickaxe_cost_stroke = stroke_font.render(f'{gold_pickaxe_text}', True, (0,0,0))
+
+        self.diamond_pickaxe_cost = font.render(f'{diamond_pickaxe_text}', True, (255,255,255))
+        self.diamond_pickaxe_cost_stroke = stroke_font.render(f'{diamond_pickaxe_text}', True, (0,0,0))
+
+        self.emerald_pickaxe_cost = font.render(f'{emerald_pickaxe_text}', True, (255,255,255))
+        self.emerald_pickaxe_cost_stroke = stroke_font.render(f'{emerald_pickaxe_text}', True, (0,0,0))
+
+        self.rubin_pickaxe_cost = font.render(f'{rubin_pickaxe_text}', True, (255,255,255))
+        self.rubin_pickaxe_cost_stroke = stroke_font.render(f'{rubin_pickaxe_text}', True, (0,0,0))
+
+        self.jadeit_pickaxe_cost = font.render(f'{jadeit_pickaxe_text}', True, (255,255,255))
+        self.jadeit_pickaxe_cost_stroke = stroke_font.render(f'{jadeit_pickaxe_text}', True, (0,0,0))
+
+        self.amethyst_pickaxe_cost = font.render(f'{amethyst_pickaxe_text}', True, (255,255,255))
+        self.amethyst_pickaxe_cost_stroke = stroke_font.render(f'{amethyst_pickaxe_text}', True, (0,0,0))
+
+
+
+
+
+    
 
     def load_etc(self):
+
         # ETC
         self.bg = pyg.image.load('ui/etc/bg.png')
         self.shadow = pyg.image.load('ui/etc/shadow.png')
@@ -345,8 +428,76 @@ class Graphics:
         self.screen.blit(self.amethyst_pickaxe_amount_stroke, (1210,693))
         self.screen.blit(self.amethyst_pickaxe_amount, (1210,693))
 
-        self.screen.blit(self.iron_ore_cost_stroke, (79,18))
-        self.screen.blit(self.iron_ore_cost, (80,17))
+        # Ore COSTS
+
+        self.screen.blit(self.iron_ore_cost_stroke, (78,18))
+        self.screen.blit(self.iron_ore_cost, (79,17))
+
+        self.screen.blit(self.copper_ore_cost_stroke, (78, 98))
+        self.screen.blit(self.copper_ore_cost, (79,98))
+
+        self.screen.blit(self.silver_ore_cost_stroke, (78, 178))
+        self.screen.blit(self.silver_ore_cost, (79,178))
+
+
+        self.screen.blit(self.gold_ore_cost_stroke, (78, 258))
+        self.screen.blit(self.gold_ore_cost, (79,258))
+
+
+        self.screen.blit(self.diamond_ore_cost_stroke, (78, 338))
+        self.screen.blit(self.diamond_ore_cost, (79,338))
+
+
+        self.screen.blit(self.emerald_ore_cost_stroke, (78, 418))
+        self.screen.blit(self.emerald_ore_cost, (79,418))
+
+
+        self.screen.blit(self.rubin_ore_cost_stroke, (78, 498))
+        self.screen.blit(self.rubin_ore_cost, (79,498))
+
+
+        self.screen.blit(self.jadeit_ore_cost_stroke, (78, 578))
+        self.screen.blit(self.jadeit_ore_cost, (79,578))
+
+
+        self.screen.blit(self.amethyst_ore_cost_stroke, (78, 658))
+        self.screen.blit(self.amethyst_ore_cost, (79,658))
+
+        # Pickaxe COSTS
+
+        self.screen.blit(self.iron_pickaxe_cost_stroke, (1108,18))
+        self.screen.blit(self.iron_pickaxe_cost, (1109,17))
+
+        self.screen.blit(self.copper_pickaxe_cost_stroke, (1108, 98))
+        self.screen.blit(self.copper_pickaxe_cost, (1109,98))
+
+        self.screen.blit(self.silver_pickaxe_cost_stroke, (1108, 178))
+        self.screen.blit(self.silver_pickaxe_cost, (1109, 178))
+
+
+        self.screen.blit(self.gold_pickaxe_cost_stroke, (1108, 258))
+        self.screen.blit(self.gold_pickaxe_cost, (1109,258))
+
+
+        self.screen.blit(self.diamond_pickaxe_cost_stroke, (1108, 338))
+        self.screen.blit(self.diamond_pickaxe_cost, (1109,338))
+
+
+        self.screen.blit(self.emerald_pickaxe_cost_stroke, (1108, 418))
+        self.screen.blit(self.emerald_pickaxe_cost, (1109,418))
+
+
+        self.screen.blit(self.rubin_pickaxe_cost_stroke, (1108, 498))
+        self.screen.blit(self.rubin_pickaxe_cost, (1109,498))
+
+
+        self.screen.blit(self.jadeit_pickaxe_cost_stroke, (1108, 578))
+        self.screen.blit(self.jadeit_pickaxe_cost, (1109, 578))
+
+
+        self.screen.blit(self.amethyst_pickaxe_cost_stroke, (1108, 658))
+        self.screen.blit(self.amethyst_pickaxe_cost, (1109,658))
+
 
     def run(self):
         self.load_etc()
@@ -363,6 +514,7 @@ class Graphics:
         self.draw_ore_amount()
         self.draw_ore_cost()
         self.draw_pickaxe_amount()
+        self.draw_pickaxe_cost()
         self.blit_text()
         # self._check_upgrade()
         self.increase_time()
@@ -393,5 +545,108 @@ class Graphics:
             settupg.score = round(settupg.score, 1)
 
 
+    def format_text(self,score):
+        score_str = str(score)
+        signs = []
+        signs[:] = score_str
+        if score >= 1000 and score < 10000:
+            score_formated = f'{signs[0]},{signs[1]}{signs[2]}K'
+            return score_formated
 
+
+        elif score >= 10000 and score < 100000:
+            score_formated = f'{signs[0]}{signs[1]},{signs[2]}K'
+            return score_formated
+
+        elif score >= 100000 and score < 1000000:
+            score_formated = f'{signs[0]}{signs[1]}{signs[2]}K'
+            return score_formated
+
+        elif score >= 1000000 and score < 10000000:
+            score_formated = f'{signs[0]},{signs[1]}{signs[2]}M'
+            return score_formated
+
+        elif score >= 10000000 and score < 100000000:
+            score_formated = f'{signs[0]}{signs[1]},{signs[2]}M'
+            return score_formated
+
+        elif score >= 100000000 and score < 1000000000:
+            score_formated = f'{signs[0]}{signs[1]}{signs[2]}M'
+            return score_formated
+
+        elif score >= 1000000000 and score < 10000000000:
+            score_formated = f'{signs[0]},{signs[1]}{signs[2]}B'
+            return score_formated
+
+        elif score >= 10000000000 and score < 100000000000:
+            score_formated = f'{signs[0]}{signs[1]},{signs[2]}B'
+            return score_formated
+
+        elif score >= 100000000000 and score < 1000000000000:
+            score_formated = f'{signs[0]}{signs[1]}{signs[2]}B'
+            return score_formated
+
+
+        elif score >= 1000000000000 and score < 10000000000000:
+            score_formated = f'{signs[0]},{signs[1]}{signs[2]}T'
+            return score_formated
+
+        elif score >= 10000000000000 and score < 100000000000000:
+            score_formated = f'{signs[0]}{signs[1]},{signs[2]}T'
+            return score_formated
+
+        elif score >= 100000000000000 and score < 1000000000000000:
+            score_formated = f'{signs[0]}{signs[1]}{signs[2]}T'
+            return score_formated
+
+        elif score >= 1000000000000000 and score < 10000000000000000:
+            score_formated = f'{signs[0]},{signs[1]}{signs[2]}Q'
+            return score_formated
+
+        elif score >= 10000000000000000 and score < 100000000000000000:
+            score_formated = f'{signs[0]}{signs[2]},{signs[3]}Q'
+            return score_formated
+
+        elif score >= 100000000000000000 and score < 1000000000000000000:
+            score_formated = f'{signs[0]}{signs[2]}{signs[3]}Q'
+            return score_formated
+
+        elif score >= 1000000000000000000 and score < 10000000000000000000:
+            score_formated = f'{signs[0]},{signs[2]}{signs[3]}S'
+            return score_formated
+
+        elif score >= 10000000000000000000 and score < 100000000000000000000:
+            score_formated = f'{signs[0]}{signs[2]},{signs[3]}S'
+            return score_formated
+
+        elif score >= 100000000000000000000 and score < 1000000000000000000000:
+            score_formated = f'{signs[0]}{signs[2]}{signs[3]}S'
+            return score_formated
+
+        elif score >= 1000000000000000000000 and score < 10000000000000000000000:
+            score_formated = f'{signs[0]},{signs[2]}{signs[3]}X'
+            return score_formated
+
+        elif score >= 10000000000000000000000 and score < 100000000000000000000000:
+            score_formated = f'{signs[0]}{signs[2]},{signs[3]}X'
+            return score_formated
+
+        elif score >= 100000000000000000000000 and score < 1000000000000000000000000:
+            score_formated = f'{signs[0]}{signs[2]}{signs[3]}X'
+            return score_formated
+
+        elif score >= 1000000000000000000000000:
+            score_formated = f'STOP IT, Get some help'
+            return score_formated
+
+        else:
+            score = str(score)
+            signs = []
+            signs[:] = score
+            score_formated = ''
+
+            for value in signs[0:3]:
+                score_formated += value
+
+            return score_formated
 
