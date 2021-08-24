@@ -359,19 +359,19 @@ class Upgrades():
 
             elif settupg.iron_ore >= 25 and settupg.iron_ore < 50:
                 settupg.iron_ore += 1
-                settupg.iron_passive_income = (1 * settupg.iron_ore) * 1.5
+                settupg.iron_passive_income = (1 * settupg.iron_ore) * 3
                 settupg.score -= settupg.iron_ore_cost
                 settupg.iron_ore_cost = 5 * (1.05)**settupg.iron_ore
 
             elif settupg.iron_ore >= 50 and settupg.iron_ore < 100:
                 settupg.iron_ore += 1
-                settupg.iron_passive_income = (1 * settupg.iron_ore) * 2.25
+                settupg.iron_passive_income = (1 * settupg.iron_ore) * 6
                 settupg.score -= settupg.iron_ore_cost
                 settupg.iron_ore_cost = 5 * (1.05)**settupg.iron_ore
 
             else:
                 settupg.iron_ore += 1
-                settupg.iron_passive_income = (1 * settupg.iron_ore) * 3
+                settupg.iron_passive_income = (1 * settupg.iron_ore) * 10
                 settupg.score -= settupg.iron_ore_cost
                 settupg.iron_ore_cost = 5 * (1.05)**settupg.iron_ore
             print(settupg.iron_ore_cost)
@@ -393,19 +393,19 @@ class Upgrades():
 
             elif settupg.copper_ore >= 25 and settupg.copper_ore < 50:
                 settupg.copper_ore += 1
-                settupg.copper_passive_income = (settupg.copper_ore_multiplier * settupg.copper_ore) * 1.5
+                settupg.copper_passive_income = (settupg.copper_ore_multiplier * settupg.copper_ore) * 3
                 settupg.score -= settupg.copper_ore_cost
                 settupg.copper_ore_cost = 63 * (1.07)**settupg.copper_ore
 
             elif settupg.copper_ore >= 50 and settupg.copper_ore < 100:
                 settupg.copper_ore += 1
-                settupg.copper_passive_income = (settupg.copper_ore_multiplier * settupg.copper_ore) * 2.25
+                settupg.copper_passive_income = (settupg.copper_ore_multiplier * settupg.copper_ore) * 6
                 settupg.score -= settupg.copper_ore_cost
                 settupg.copper_ore_cost = 63 * (1.07)**settupg.copper_ore
 
             else:
                 settupg.copper_ore += 1
-                settupg.copper_passive_income = (settupg.copper_ore_multiplier * settupg.copper_ore) * 3
+                settupg.copper_passive_income = (settupg.copper_ore_multiplier * settupg.copper_ore) * 10
                 settupg.score -= settupg.copper_ore_cost
                 settupg.copper_ore_cost = 63 * (1.07)**settupg.copper_ore
 
@@ -427,19 +427,19 @@ class Upgrades():
 
             elif settupg.silver_ore >= 25 and settupg.silver_ore < 50:
                 settupg.silver_ore += 1
-                settupg.silver_passive_income = (settupg.silver_ore_multiplier * settupg.silver_ore) * 1.5
+                settupg.silver_passive_income = (settupg.silver_ore_multiplier * settupg.silver_ore) * 3
                 settupg.score -= settupg.silver_ore_cost
                 settupg.silver_ore_cost = 351 * (1.09)**settupg.silver_ore
 
             elif settupg.silver_ore >= 50 and settupg.silver_ore < 100:
                 settupg.silver_ore += 1
-                settupg.silver_passive_income = (settupg.silver_ore_multiplier * settupg.silver_ore) * 2.25
+                settupg.silver_passive_income = (settupg.silver_ore_multiplier * settupg.silver_ore) * 6
                 settupg.score -= settupg.silver_ore_cost
                 settupg.silver_ore_cost = 351 * (1.09)**settupg.silver_ore
 
             else:
                 settupg.silver_ore += 1
-                settupg.silver_passive_income = (settupg.silver_ore_multiplier * settupg.silver_ore) * 3
+                settupg.silver_passive_income = (settupg.silver_ore_multiplier * settupg.silver_ore) * 10
                 settupg.score -= settupg.silver_ore_cost
                 settupg.silver_ore_cost = 351 * (1.09)**settupg.silver_ore
 
@@ -461,19 +461,19 @@ class Upgrades():
 
             elif settupg.gold_ore >= 25 and settupg.gold_ore < 50:
                 settupg.gold_ore += 1
-                settupg.gold_passive_income = (settupg.gold_ore_multiplier * settupg.gold_ore) * 1.5
+                settupg.gold_passive_income = (settupg.gold_ore_multiplier * settupg.gold_ore) * 3
                 settupg.score -= settupg.gold_ore_cost
                 settupg.gold_ore_cost = 1967 * (1.11)**settupg.gold_ore
 
             elif settupg.gold_ore >= 50 and settupg.gold_ore < 100:
                 settupg.gold_ore += 1
-                settupg.gold_passive_income = (settupg.gold_ore_multiplier * settupg.gold_ore) * 2.25
+                settupg.gold_passive_income = (settupg.gold_ore_multiplier * settupg.gold_ore) * 6
                 settupg.score -= settupg.gold_ore_cost
                 settupg.gold_ore_cost = 1967 * (1.11)**settupg.gold_ore
 
             else:
                 settupg.gold_ore += 1
-                settupg.gold_passive_income = (settupg.gold_ore_multiplier * settupg.gold_ore) * 3
+                settupg.gold_passive_income = (settupg.gold_ore_multiplier * settupg.gold_ore) * 10
                 settupg.score -= settupg.gold_ore_cost
                 settupg.gold_ore_cost = 1967 * (1.11)**settupg.gold_ore
 
@@ -495,19 +495,19 @@ class Upgrades():
 
             elif settupg.diamond_ore >= 25 and settupg.diamond_ore < 50:
                 settupg.diamond_ore += 1
-                settupg.diamond_passive_income = (settupg.diamond_ore_multiplier * settupg.diamond_ore) * 1.5
+                settupg.diamond_passive_income = (settupg.diamond_ore_multiplier * settupg.diamond_ore) * 3
                 settupg.score -= settupg.diamond_ore_cost
                 settupg.diamond_ore_cost = 11019 * (1.13)**settupg.diamond_ore
 
             elif settupg.diamond_ore >= 50 and settupg.diamond_ore < 100:
                 settupg.diamond_ore += 1
-                settupg.diamond_passive_income = (settupg.diamond_ore_multiplier * settupg.diamond_ore) * 2.25
+                settupg.diamond_passive_income = (settupg.diamond_ore_multiplier * settupg.diamond_ore) * 6
                 settupg.score -= settupg.diamond_ore_cost
                 settupg.diamond_ore_cost = 11019 * (1.13)**settupg.diamond_ore
 
             else:
                 settupg.diamond_ore += 1
-                settupg.diamond_passive_income = (settupg.diamond_ore_multiplier * settupg.diamond_ore) * 3
+                settupg.diamond_passive_income = (settupg.diamond_ore_multiplier * settupg.diamond_ore) * 10
                 settupg.score -= settupg.diamond_ore_cost
                 settupg.diamond_ore_cost = 11019 * (1.13)**settupg.diamond_ore
 
@@ -529,19 +529,19 @@ class Upgrades():
 
             elif settupg.emerald_ore >= 25 and settupg.emerald_ore < 50:
                 settupg.emerald_ore += 1
-                settupg.emerald_passive_income = (settupg.emerald_ore_multiplier * settupg.emerald_ore) * 1.5
+                settupg.emerald_passive_income = (settupg.emerald_ore_multiplier * settupg.emerald_ore) * 3
                 settupg.score -= settupg.emerald_ore_cost
                 settupg.emerald_ore_cost = 61757 * (1.15)**settupg.emerald_ore
 
             elif settupg.emerald_ore >= 50 and settupg.emerald_ore < 100:
                 settupg.emerald_ore += 1
-                settupg.emerald_passive_income = (settupg.emerald_ore_multiplier * settupg.emerald_ore) * 2.25
+                settupg.emerald_passive_income = (settupg.emerald_ore_multiplier * settupg.emerald_ore) * 6
                 settupg.score -= settupg.emerald_ore_cost
                 settupg.emerald_ore_cost = 61757 * (1.15)**settupg.emerald_ore
 
             else:
                 settupg.emerald_ore += 1
-                settupg.emerald_passive_income = (settupg.emerald_ore_multiplier * settupg.emerald_ore) * 3
+                settupg.emerald_passive_income = (settupg.emerald_ore_multiplier * settupg.emerald_ore) * 10
                 settupg.score -= settupg.emerald_ore_cost
                 settupg.emerald_ore_cost = 61757 * (1.15)**settupg.emerald_ore
 
@@ -563,19 +563,19 @@ class Upgrades():
 
             elif settupg.rubin_ore >= 25 and settupg.rubin_ore < 50:
                 settupg.rubin_ore += 1
-                settupg.rubin_passive_income = (settupg.rubin_ore_multiplier * settupg.rubin_ore) * 1.5
+                settupg.rubin_passive_income = (settupg.rubin_ore_multiplier * settupg.rubin_ore) * 3
                 settupg.score -= settupg.rubin_ore_cost
                 settupg.rubin_ore_cost = 346113 * (1.17)**settupg.rubin_ore
 
             elif settupg.rubin_ore >= 50 and settupg.rubin_ore < 100:
                 settupg.rubin_ore += 1
-                settupg.rubin_passive_income = (settupg.rubin_ore_multiplier * settupg.rubin_ore) * 2.25
+                settupg.rubin_passive_income = (settupg.rubin_ore_multiplier * settupg.rubin_ore) * 6
                 settupg.score -= settupg.rubin_ore_cost
                 settupg.rubin_ore_cost = 346113 * (1.17)**settupg.rubin_ore
 
             else:
                 settupg.rubin_ore += 1
-                settupg.rubin_passive_income = (settupg.rubin_ore_multiplier * settupg.rubin_ore) * 3
+                settupg.rubin_passive_income = (settupg.rubin_ore_multiplier * settupg.rubin_ore) * 10
                 settupg.score -= settupg.rubin_ore_cost
                 settupg.rubin_ore_cost = 346113 * (1.17)**settupg.rubin_ore
 
@@ -597,19 +597,19 @@ class Upgrades():
 
             elif settupg.jadeit_ore >= 25 and settupg.jadeit_ore < 50:
                 settupg.jadeit_ore += 1
-                settupg.jadeit_passive_income = (settupg.jadeit_ore_multiplier * settupg.jadeit_ore) * 1.5
+                settupg.jadeit_passive_income = (settupg.jadeit_ore_multiplier * settupg.jadeit_ore) * 3
                 settupg.score -= settupg.jadeit_ore_cost
                 settupg.jadeit_ore_cost = 1939756 * (1.19)**settupg.jadeit_ore
 
             elif settupg.jadeit_ore >= 50 and settupg.jadeit_ore < 100:
                 settupg.jadeit_ore += 1
-                settupg.jadeit_passive_income = (settupg.jadeit_ore_multiplier * settupg.jadeit_ore) * 2.25
+                settupg.jadeit_passive_income = (settupg.jadeit_ore_multiplier * settupg.jadeit_ore) * 6
                 settupg.score -= settupg.jadeit_ore_cost
                 settupg.jadeit_ore_cost = 1939756 * (1.19)**settupg.jadeit_ore
 
             else:
                 settupg.jadeit_ore += 1
-                settupg.jadeit_passive_income = (settupg.jadeit_ore_multiplier * settupg.jadeit_ore) * 3
+                settupg.jadeit_passive_income = (settupg.jadeit_ore_multiplier * settupg.jadeit_ore) * 10
                 settupg.score -= settupg.jadeit_ore_cost
                 settupg.jadeit_ore_cost = 1939756 * (1.19)**settupg.jadeit_ore
 
@@ -631,18 +631,18 @@ class Upgrades():
 
             elif settupg.amethyst_ore >= 25 and settupg.amethyst_ore < 50:
                 settupg.amethyst_ore += 1
-                settupg.amethyst_passive_income = (settupg.amethyst_ore_multiplier * settupg.amethyst_ore) * 1.5
+                settupg.amethyst_passive_income = (settupg.amethyst_ore_multiplier * settupg.amethyst_ore) * 3
                 settupg.score -= settupg.amethyst_ore_cost
                 settupg.amethyst_ore_cost = 10871185 * (1.21)**settupg.amethyst_ore
 
             elif settupg.amethyst_ore >= 50 and settupg.amethyst_ore < 100:
                 settupg.amethyst_ore += 1
-                settupg.amethyst_passive_income = (settupg.amethyst_ore_multiplier * settupg.amethyst_ore) * 2.25
+                settupg.amethyst_passive_income = (settupg.amethyst_ore_multiplier * settupg.amethyst_ore) * 6
                 settupg.score -= settupg.amethyst_ore_cost
                 settupg.amethyst_ore_cost = 10871185 * (1.21)**settupg.amethyst_ore
 
             else:
                 settupg.amethyst_ore += 1
-                settupg.amethyst_passive_income = (settupg.amethyst_ore_multiplier * settupg.amethyst_ore) * 3
+                settupg.amethyst_passive_income = (settupg.amethyst_ore_multiplier * settupg.amethyst_ore) * 10
                 settupg.score -= settupg.amethyst_ore_cost
                 settupg.amethyst_ore_cost = 10871185 * (1.21)**settupg.amethyst_ore

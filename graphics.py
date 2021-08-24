@@ -15,7 +15,6 @@ class Graphics:
 
     def draw_text(self):
         text_score = self.format_text(settupg.score)
-        text_upgrade_click_cost = str(int(round(settupg.upgrade_cost_click, 1)))
         text_font = pyg.font.Font('ui/etc/m6x11.ttf',64)
         stroke_font = pyg.font.Font('ui/etc/m6x11.ttf',65)
 
@@ -316,36 +315,120 @@ class Graphics:
             # Ores
 
         self.screen.blit(self.iron_ore, (0,0))
-        self.screen.blit(self.copper_ore, (0,80))
-        self.screen.blit(self.silver_ore,(0,160))
-        self.screen.blit(self.gold_ore,(0,240))
-        self.screen.blit(self.diamond_ore,(0,320))
-        self.screen.blit(self.emerald_ore,(0,400))
-        self.screen.blit(self.rubin_ore,(0,480))    
-        self.screen.blit(self.jadeit_ore,(0,560))
-        self.screen.blit(self.amethyst_ore,(0,640))
+        if settupg.iron_pickaxe > 24:
+            self.screen.blit(self.copper_ore, (0,80))
+        if settupg.copper_pickaxe > 24:
+            self.screen.blit(self.silver_ore,(0,160))
+        if settupg.silver_pickaxe > 24:
+            self.screen.blit(self.gold_ore,(0,240))
+        if settupg.gold_pickaxe > 24:
+            self.screen.blit(self.diamond_ore,(0,320))
+        if settupg.diamond_pickaxe > 24:
+            self.screen.blit(self.emerald_ore,(0,400))
+        if settupg.emerald_pickaxe > 24:
+            self.screen.blit(self.rubin_ore,(0,480))    
+        if settupg.rubin_pickaxe > 24:
+            self.screen.blit(self.jadeit_ore,(0,560))
+        if settupg.jadeit_pickaxe > 24:
+            self.screen.blit(self.amethyst_ore,(0,640))
     
     def blit_buttons_ores(self):
-        self.b1_ore = self.screen.blit(self.button_available, (70,10))
-        self.b2_ore = self.screen.blit(self.button_available, (70,90))
-        self.b3_ore = self.screen.blit(self.button_available, (70,170))
-        self.b4_ore = self.screen.blit(self.button_available, (70,250))
-        self.b5_ore = self.screen.blit(self.button_available, (70,330))
-        self.b6_ore = self.screen.blit(self.button_available, (70,410))
-        self.b7_ore = self.screen.blit(self.button_available, (70,490))
-        self.b8_ore = self.screen.blit(self.button_available, (70,570))
-        self.b9_ore = self.screen.blit(self.button_available, (70,650))
+        if settupg.score < settupg.iron_ore_cost:
+            self.b1_ore = self.screen.blit(self.button_unavailable, (70,10))
+        else:
+            self.b1_ore = self.screen.blit(self.button_available, (70,10))
+        if settupg.iron_pickaxe > 24:
+            if settupg.score < settupg.copper_ore_cost:
+                self.b2_ore = self.screen.blit(self.button_unavailable, (70,90))
+            else:
+                self.b2_ore = self.screen.blit(self.button_available, (70,90))
+        if settupg.copper_pickaxe > 24:
+            if settupg.score < settupg.silver_ore_cost:
+                self.b3_ore = self.screen.blit(self.button_unavailable, (70,170)) 
+            else:
+                self.b3_ore = self.screen.blit(self.button_available, (70,170)) 
+        if settupg.silver_pickaxe > 24:
+            if settupg.score < settupg.gold_ore_cost:
+                self.b4_ore = self.screen.blit(self.button_unavailable, (70,250))
+            else:
+                self.b4_ore = self.screen.blit(self.button_available, (70,250))
+        if settupg.gold_pickaxe > 24:
+            if settupg.score < settupg.diamond_ore_cost:
+                self.b5_ore = self.screen.blit(self.button_unavailable, (70,330))
+            else:
+                self.b5_ore = self.screen.blit(self.button_available, (70,330))
+        if settupg.diamond_pickaxe > 24:
+            if settupg.score < settupg.emerald_ore_cost:
+                self.b6_ore = self.screen.blit(self.button_unavailable, (70,410))
+            else:
+                self.b6_ore = self.screen.blit(self.button_available, (70,410))
+        if settupg.emerald_pickaxe > 24:
+            if settupg.score < settupg.rubin_ore_cost:
+                self.b7_ore = self.screen.blit(self.button_unavailable, (70,490))
+            else:
+                self.b7_ore = self.screen.blit(self.button_available, (70,490))
+        if settupg.rubin_pickaxe > 24:
+            if settupg.score < settupg.jadeit_ore_cost:
+                self.b8_ore = self.screen.blit(self.button_unavailable, (70,570))
+            else:
+                self.b8_ore = self.screen.blit(self.button_available, (70,570))
+        if settupg.jadeit_pickaxe > 24:
+            if settupg.score < settupg.amethyst_ore_cost:
+                self.b9_ore = self.screen.blit(self.button_unavailable, (70,650))
+            else:
+                self.b9_ore = self.screen.blit(self.button_available, (70,650))
 
     def blit_buttons_pickaxes(self):
-        self.b1_pickaxe = self.screen.blit(self.button_available, (1100,10))
-        self.b2_pickaxe = self.screen.blit(self.button_available, (1100,90))
-        self.b3_pickaxe = self.screen.blit(self.button_available, (1100,170))
-        self.b4_pickaxe = self.screen.blit(self.button_available, (1100,250))
-        self.b5_pickaxe = self.screen.blit(self.button_available, (1100,330))
-        self.b6_pickaxe = self.screen.blit(self.button_available, (1100,410))
-        self.b7_pickaxe = self.screen.blit(self.button_available, (1100,490))
-        self.b8_pickaxe = self.screen.blit(self.button_available, (1100,570))
-        self.b9_pickaxe = self.screen.blit(self.button_available, (1100,650))
+        if settupg.iron_ore > 24:
+            if settupg.score < settupg.iron_pickaxe_cost:
+                self.b1_pickaxe = self.screen.blit(self.button_unavailable, (1100,10))
+            else:
+                self.b1_pickaxe = self.screen.blit(self.button_available, (1100,10))
+        
+        if settupg.copper_ore > 24:
+            if settupg.score < settupg.copper_pickaxe_cost:
+                self.b2_pickaxe = self.screen.blit(self.button_unavailable, (1100,90))
+            else:
+                self.b2_pickaxe = self.screen.blit(self.button_available, (1100,90))
+        
+        if settupg.silver_ore > 24:
+            if settupg.score < settupg.silver_pickaxe_cost:
+                self.b3_pickaxe = self.screen.blit(self.button_unavailable, (1100,170)) 
+            else:
+                self.b3_pickaxe = self.screen.blit(self.button_available, (1100,170)) 
+        
+        if settupg.gold_ore > 24:
+            if settupg.score < settupg.gold_pickaxe_cost:
+                self.b4_pickaxe = self.screen.blit(self.button_unavailable, (1100,250))
+            else:
+                self.b4_pickaxe = self.screen.blit(self.button_available, (1100,250))
+
+        if settupg.diamond_ore > 24:
+            if settupg.score < settupg.diamond_pickaxe_cost:
+                self.b5_pickaxe = self.screen.blit(self.button_unavailable, (1100,330))
+            else:
+                self.b5_pickaxe = self.screen.blit(self.button_available, (1100,330))
+        if settupg.emerald_ore > 24:
+            if settupg.score < settupg.emerald_pickaxe_cost:
+                self.b6_pickaxe = self.screen.blit(self.button_unavailable, (1100,410))
+            else:
+                self.b6_pickaxe = self.screen.blit(self.button_available, (1100,410))
+        if settupg.rubin_ore > 24:
+            if settupg.score < settupg.rubin_pickaxe_cost:
+                self.b7_pickaxe = self.screen.blit(self.button_unavailable, (1100,490))
+            else:
+                self.b7_pickaxe = self.screen.blit(self.button_available, (1100,490))
+
+        if settupg.jadeit_ore > 24:
+            if settupg.score < settupg.jadeit_pickaxe_cost:
+                self.b8_pickaxe = self.screen.blit(self.button_unavailable, (1100,570))
+            else:
+                self.b8_pickaxe = self.screen.blit(self.button_available, (1100,570))
+        if settupg.amethyst_ore > 24:
+            if settupg.score < settupg.amethyst_pickaxe_cost:
+                self.b9_pickaxe = self.screen.blit(self.button_unavailable, (1100,650))
+            else:
+                self.b9_pickaxe = self.screen.blit(self.button_available, (1100,650))
 
 
 
@@ -354,15 +437,24 @@ class Graphics:
         
     def blit_pickaxes(self):    
             # Pickaxes
-        self.screen.blit(self.iron_pickaxe, (1210,0))
-        self.screen.blit(self.copper_pickaxe, (1210,80))
-        self.screen.blit(self.silver_pickaxe,(1210,160))
-        self.screen.blit(self.gold_pickaxe,(1210,240))
-        self.screen.blit(self.diamond_pickaxe,(1210,320))
-        self.screen.blit(self.emerald_pickaxe,(1210,400))
-        self.screen.blit(self.rubin_pickaxe,(1210,480))    
-        self.screen.blit(self.jadeit_pickaxe,(1210,560))
-        self.screen.blit(self.amethyst_pickaxe,(1210,640))
+        if settupg.iron_ore > 24:
+            self.screen.blit(self.iron_pickaxe, (1210,0))
+        if settupg.copper_ore > 24:
+            self.screen.blit(self.copper_pickaxe, (1210,80))
+        if settupg.silver_ore > 24:
+            self.screen.blit(self.silver_pickaxe,(1210,160))
+        if settupg.gold_ore > 24:
+            self.screen.blit(self.gold_pickaxe,(1210,240))
+        if settupg.diamond_ore > 24:
+            self.screen.blit(self.diamond_pickaxe,(1210,320))
+        if settupg.emerald_ore > 24:
+            self.screen.blit(self.emerald_pickaxe,(1210,400))
+        if settupg.rubin_ore > 24:
+            self.screen.blit(self.rubin_pickaxe,(1210,480))    
+        if settupg.jadeit_ore > 24:
+            self.screen.blit(self.jadeit_pickaxe,(1210,560))
+        if settupg.amethyst_ore > 24:
+            self.screen.blit(self.amethyst_pickaxe,(1210,640))
     
     def blit_text(self):
         # Score
@@ -374,129 +466,144 @@ class Graphics:
         
         self.screen.blit(self.iron_ore_amount_stroke, (10,53))
         self.screen.blit(self.iron_ore_amount, (10,53))
-
-        self.screen.blit(self.copper_ore_amount_stroke, (10,133))
-        self.screen.blit(self.copper_ore_amount, (10,133))
-
-        self.screen.blit(self.silver_ore_amount_stroke, (10,213))
-        self.screen.blit(self.silver_ore_amount, (10,213))
-
-        self.screen.blit(self.gold_ore_amount_stroke, (10,293))
-        self.screen.blit(self.gold_ore_amount, (10,293))
-    
-        self.screen.blit(self.diamond_ore_amount_stroke, (10,373))
-        self.screen.blit(self.diamond_ore_amount, (10,373))
-
-        self.screen.blit(self.emerald_ore_amount_stroke, (10,453))
-        self.screen.blit(self.emerald_ore_amount, (10,453))
-
-        self.screen.blit(self.rubin_ore_amount_stroke, (10,533))
-        self.screen.blit(self.rubin_ore_amount, (10,533))
-
-        self.screen.blit(self.jadeit_ore_amount_stroke, (10,613))
-        self.screen.blit(self.jadeit_ore_amount, (10,613))
-
-        self.screen.blit(self.amethyst_ore_amount_stroke, (10,693))
-        self.screen.blit(self.amethyst_ore_amount, (10,693))
-        
-        # Pickaxes
-
-        self.screen.blit(self.iron_pickaxe_amount_stroke, (1210,53))
-        self.screen.blit(self.iron_pickaxe_amount, (1210,53))
-
-        self.screen.blit(self.copper_pickaxe_amount_stroke, (1210,133))
-        self.screen.blit(self.copper_pickaxe_amount, (1210,133))
-
-        self.screen.blit(self.silver_pickaxe_amount_stroke, (1210,213))
-        self.screen.blit(self.silver_pickaxe_amount, (1210,213))
-
-        self.screen.blit(self.gold_pickaxe_amount_stroke, (1210,293))
-        self.screen.blit(self.gold_pickaxe_amount, (1210,293))
-    
-        self.screen.blit(self.diamond_pickaxe_amount_stroke, (1210,373))
-        self.screen.blit(self.diamond_pickaxe_amount, (1210,373))
-
-        self.screen.blit(self.emerald_pickaxe_amount_stroke, (1210,453))
-        self.screen.blit(self.emerald_pickaxe_amount, (1210,453))
-
-        self.screen.blit(self.rubin_pickaxe_amount_stroke, (1210,533))
-        self.screen.blit(self.rubin_pickaxe_amount, (1210,533))
-
-        self.screen.blit(self.jadeit_pickaxe_amount_stroke, (1210,613))
-        self.screen.blit(self.jadeit_pickaxe_amount, (1210,613))
-
-        self.screen.blit(self.amethyst_pickaxe_amount_stroke, (1210,693))
-        self.screen.blit(self.amethyst_pickaxe_amount, (1210,693))
-
-        # Ore COSTS
-
         self.screen.blit(self.iron_ore_cost_stroke, (78,18))
         self.screen.blit(self.iron_ore_cost, (79,17))
 
-        self.screen.blit(self.copper_ore_cost_stroke, (78, 98))
-        self.screen.blit(self.copper_ore_cost, (79,98))
+        if settupg.iron_pickaxe > 24:
+            self.screen.blit(self.copper_ore_amount_stroke, (10,133))
+            self.screen.blit(self.copper_ore_amount, (10,133))
+            self.screen.blit(self.copper_ore_cost_stroke, (78, 98))
+            self.screen.blit(self.copper_ore_cost, (79,98))
+        if settupg.copper_pickaxe > 24:
+            self.screen.blit(self.silver_ore_amount_stroke, (10,213))
+            self.screen.blit(self.silver_ore_amount, (10,213))
+            self.screen.blit(self.silver_ore_cost_stroke, (78, 178))
+            self.screen.blit(self.silver_ore_cost, (79,178))
+        if settupg.silver_pickaxe > 24:
+            self.screen.blit(self.gold_ore_amount_stroke, (10,293))
+            self.screen.blit(self.gold_ore_amount, (10,293))
+            self.screen.blit(self.gold_ore_cost_stroke, (78, 258))
+            self.screen.blit(self.gold_ore_cost, (79,258))
+        if settupg.gold_pickaxe > 24:
+            self.screen.blit(self.diamond_ore_amount_stroke, (10,373))
+            self.screen.blit(self.diamond_ore_amount, (10,373))
+            self.screen.blit(self.diamond_ore_cost_stroke, (78, 338))
+            self.screen.blit(self.diamond_ore_cost, (79,338))
+        if settupg.diamond_pickaxe > 24:
+            self.screen.blit(self.emerald_ore_amount_stroke, (10,453))
+            self.screen.blit(self.emerald_ore_amount, (10,453))
+            self.screen.blit(self.emerald_ore_cost_stroke, (78, 418))
+            self.screen.blit(self.emerald_ore_cost, (79,418))
+        if settupg.emerald_pickaxe > 24:
+            self.screen.blit(self.rubin_ore_amount_stroke, (10,533))
+            self.screen.blit(self.rubin_ore_amount, (10,533))
+            self.screen.blit(self.rubin_ore_cost_stroke, (78, 498))
+            self.screen.blit(self.rubin_ore_cost, (79,498))
+        if settupg.rubin_pickaxe > 24:
+            self.screen.blit(self.jadeit_ore_amount_stroke, (10,613))
+            self.screen.blit(self.jadeit_ore_amount, (10,613))
+            self.screen.blit(self.jadeit_ore_cost_stroke, (78, 578))
+            self.screen.blit(self.jadeit_ore_cost, (79,578))
+        if settupg.jadeit_pickaxe > 24:
+            self.screen.blit(self.amethyst_ore_amount_stroke, (10,693))
+            self.screen.blit(self.amethyst_ore_amount, (10,693))
+            self.screen.blit(self.amethyst_ore_cost_stroke, (78, 658))
+            self.screen.blit(self.amethyst_ore_cost, (79,658))
+        
+            # Pickaxes
+        if settupg.iron_ore > 24:
+            self.screen.blit(self.iron_pickaxe_amount_stroke, (1210,53))
+            self.screen.blit(self.iron_pickaxe_amount, (1210,53))
+            self.screen.blit(self.iron_pickaxe_cost_stroke, (1108,18))
+            self.screen.blit(self.iron_pickaxe_cost, (1109,17))
 
-        self.screen.blit(self.silver_ore_cost_stroke, (78, 178))
-        self.screen.blit(self.silver_ore_cost, (79,178))
+        if settupg.copper_ore > 24:
+            self.screen.blit(self.copper_pickaxe_amount_stroke, (1210,133))
+            self.screen.blit(self.copper_pickaxe_amount, (1210,133))
+            self.screen.blit(self.copper_pickaxe_cost_stroke, (1108, 98))
+            self.screen.blit(self.copper_pickaxe_cost, (1109,98))
+        if settupg.silver_ore > 24:
+            self.screen.blit(self.silver_pickaxe_amount_stroke, (1210,213))
+            self.screen.blit(self.silver_pickaxe_amount, (1210,213))
+            self.screen.blit(self.silver_pickaxe_cost_stroke, (1108, 178))
+            self.screen.blit(self.silver_pickaxe_cost, (1109, 178))
+        if settupg.gold_ore > 24:
+            self.screen.blit(self.gold_pickaxe_amount_stroke, (1210,293))
+            self.screen.blit(self.gold_pickaxe_amount, (1210,293))
+            self.screen.blit(self.gold_pickaxe_cost_stroke, (1108, 258))
+            self.screen.blit(self.gold_pickaxe_cost, (1109,258))
+        if settupg.diamond_ore > 24:
+            self.screen.blit(self.diamond_pickaxe_amount_stroke, (1210,373))
+            self.screen.blit(self.diamond_pickaxe_amount, (1210,373))
+            self.screen.blit(self.diamond_pickaxe_cost_stroke, (1108, 338))
+            self.screen.blit(self.diamond_pickaxe_cost, (1109,338))
+        if settupg.emerald_ore > 24:
+            self.screen.blit(self.emerald_pickaxe_amount_stroke, (1210,453))
+            self.screen.blit(self.emerald_pickaxe_amount, (1210,453))
+            self.screen.blit(self.emerald_pickaxe_cost_stroke, (1108, 418))
+            self.screen.blit(self.emerald_pickaxe_cost, (1109,418))
+        if settupg.rubin_ore > 24:
+            self.screen.blit(self.rubin_pickaxe_amount_stroke, (1210,533))
+            self.screen.blit(self.rubin_pickaxe_amount, (1210,533))
+            self.screen.blit(self.rubin_pickaxe_cost_stroke, (1108, 498))
+            self.screen.blit(self.rubin_pickaxe_cost, (1109,498))
+        if settupg.jadeit_ore > 24:
+            self.screen.blit(self.jadeit_pickaxe_amount_stroke, (1210,613))
+            self.screen.blit(self.jadeit_pickaxe_amount, (1210,613))
+            self.screen.blit(self.jadeit_pickaxe_cost_stroke, (1108, 578))
+            self.screen.blit(self.jadeit_pickaxe_cost, (1109, 578))
+        if settupg.amethyst_ore > 24:
+            self.screen.blit(self.amethyst_pickaxe_amount_stroke, (1210,693))
+            self.screen.blit(self.amethyst_pickaxe_amount, (1210,693))
+            self.screen.blit(self.amethyst_pickaxe_cost_stroke, (1108, 658))
+            self.screen.blit(self.amethyst_pickaxe_cost, (1109,658))
+
+        # Ore COSTS
 
 
-        self.screen.blit(self.gold_ore_cost_stroke, (78, 258))
-        self.screen.blit(self.gold_ore_cost, (79,258))
 
 
-        self.screen.blit(self.diamond_ore_cost_stroke, (78, 338))
-        self.screen.blit(self.diamond_ore_cost, (79,338))
 
 
-        self.screen.blit(self.emerald_ore_cost_stroke, (78, 418))
-        self.screen.blit(self.emerald_ore_cost, (79,418))
 
 
-        self.screen.blit(self.rubin_ore_cost_stroke, (78, 498))
-        self.screen.blit(self.rubin_ore_cost, (79,498))
 
 
-        self.screen.blit(self.jadeit_ore_cost_stroke, (78, 578))
-        self.screen.blit(self.jadeit_ore_cost, (79,578))
 
 
-        self.screen.blit(self.amethyst_ore_cost_stroke, (78, 658))
-        self.screen.blit(self.amethyst_ore_cost, (79,658))
+
+
+
+
+
+
+
+
+
 
         # Pickaxe COSTS
 
-        self.screen.blit(self.iron_pickaxe_cost_stroke, (1108,18))
-        self.screen.blit(self.iron_pickaxe_cost, (1109,17))
-
-        self.screen.blit(self.copper_pickaxe_cost_stroke, (1108, 98))
-        self.screen.blit(self.copper_pickaxe_cost, (1109,98))
-
-        self.screen.blit(self.silver_pickaxe_cost_stroke, (1108, 178))
-        self.screen.blit(self.silver_pickaxe_cost, (1109, 178))
 
 
-        self.screen.blit(self.gold_pickaxe_cost_stroke, (1108, 258))
-        self.screen.blit(self.gold_pickaxe_cost, (1109,258))
 
 
-        self.screen.blit(self.diamond_pickaxe_cost_stroke, (1108, 338))
-        self.screen.blit(self.diamond_pickaxe_cost, (1109,338))
 
 
-        self.screen.blit(self.emerald_pickaxe_cost_stroke, (1108, 418))
-        self.screen.blit(self.emerald_pickaxe_cost, (1109,418))
 
 
-        self.screen.blit(self.rubin_pickaxe_cost_stroke, (1108, 498))
-        self.screen.blit(self.rubin_pickaxe_cost, (1109,498))
 
 
-        self.screen.blit(self.jadeit_pickaxe_cost_stroke, (1108, 578))
-        self.screen.blit(self.jadeit_pickaxe_cost, (1109, 578))
 
 
-        self.screen.blit(self.amethyst_pickaxe_cost_stroke, (1108, 658))
-        self.screen.blit(self.amethyst_pickaxe_cost, (1109,658))
+
+
+
+
+
+
+
+
+
 
 
     def run(self):
