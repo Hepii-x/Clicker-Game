@@ -6,7 +6,7 @@
 * [Technologies](#technologies)
 * [Download](#download)
 ## General info
-Simple clicker game with mine theme.
+Simple clicker game with mine theme. Just press on rock ^_^
 
 ## Images
 ![1](./data/1.png)<br />
