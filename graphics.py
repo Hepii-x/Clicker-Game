@@ -1,9 +1,8 @@
-from typing import Text
 import pygame as pyg
 from settings import Settings
 from upgrades import Upgrades
-import settings, upgrades
 import upgradesettings as settupg
+
 
 class Graphics:
     def __init__(self, game):
@@ -85,7 +84,6 @@ class Graphics:
         self.amethyst_pickaxe_amount = font.render(f'x{str(settupg.amethyst_pickaxe)}', True, (255,255,255))
         self.amethyst_pickaxe_amount_stroke = stroke_font.render(f'x{str(settupg.amethyst_pickaxe)}', True, (0,0,0))
 
-
     def draw_ore_cost(self):
         font = pyg.font.Font('ui/etc/m6x11.ttf',38)
         stroke_font = pyg.font.Font('ui/etc/m6x11.ttf',39)
@@ -99,7 +97,6 @@ class Graphics:
         rubin_ore_text = self.format_text(settupg.rubin_ore_cost)
         jadeit_ore_text = self.format_text(settupg.jadeit_ore_cost)
         amethyst_ore_text = self.format_text(settupg.amethyst_ore_cost)
-
 
         self.iron_ore_cost = font.render(f'{iron_ore_text}', True, (255,255,255))
         self.iron_ore_cost_stroke = stroke_font.render(f'{iron_ore_text}', True, (0,0,0))
@@ -142,7 +139,6 @@ class Graphics:
         jadeit_pickaxe_text = self.format_text(settupg.jadeit_pickaxe_cost)
         amethyst_pickaxe_text = self.format_text(settupg.amethyst_pickaxe_cost)
 
-
         self.iron_pickaxe_cost = font.render(f'{iron_pickaxe_text}', True, (255,255,255))
         self.iron_pickaxe_cost_stroke = stroke_font.render(f'{iron_pickaxe_text}', True, (0,0,0))
 
@@ -169,12 +165,6 @@ class Graphics:
 
         self.amethyst_pickaxe_cost = font.render(f'{amethyst_pickaxe_text}', True, (255,255,255))
         self.amethyst_pickaxe_cost_stroke = stroke_font.render(f'{amethyst_pickaxe_text}', True, (0,0,0))
-
-
-
-
-
-    
 
     def load_etc(self):
 
@@ -304,7 +294,7 @@ class Graphics:
         self.amethyst_pickaxe = pyg.transform.scale(self.amethyst_pickaxe, (67,67))
 
     def blit_etc(self):
-            # ETC
+        # ETC
 
         self.screen.blit(self.bg, (0,0))
         self.screen.blit(self.shadow, (417,398))
@@ -312,7 +302,7 @@ class Graphics:
         self.screen.blit(self.coin, (560,10))
 
     def blit_ores(self):
-            # Ores
+        # Ores
 
         self.screen.blit(self.iron_ore, (0,0))
         if settupg.iron_pickaxe > 24:
@@ -430,13 +420,8 @@ class Graphics:
             else:
                 self.b9_pickaxe = self.screen.blit(self.button_available, (1100,650))
 
-
-
-
-
-        
-    def blit_pickaxes(self):    
-            # Pickaxes
+    def blit_pickaxes(self):
+        # Pickaxes
         if settupg.iron_ore > 24:
             self.screen.blit(self.iron_pickaxe, (1210,0))
         if settupg.copper_ore > 24:
@@ -558,54 +543,6 @@ class Graphics:
             self.screen.blit(self.amethyst_pickaxe_cost_stroke, (1108, 658))
             self.screen.blit(self.amethyst_pickaxe_cost, (1109,658))
 
-        # Ore COSTS
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        # Pickaxe COSTS
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     def run(self):
         self.load_etc()
         self.load_ores()
@@ -623,22 +560,9 @@ class Graphics:
         self.draw_pickaxe_amount()
         self.draw_pickaxe_cost()
         self.blit_text()
-        # self._check_upgrade()
         self.increase_time()
 
-
-
-    # def _check_upgrade(self):
-    #     if settupg.score < settupg.upgrade_cost_click:
-    #         self.settings.upgrade_button_color = (255,0,0)
-    #     else:
-    #         self.settings.upgrade_button_color = (0,255,0)
-    #     if settupg.score < settupg.upgrade_passive_cost:
-    #         self.settings.upgrade_passive_button_color = (255,0,0)
-    #     else:
-    #         self.settings.upgrade_passive_button_color = (0,255,0)
-
-    def increase_time(self): # Absolutnie nie mam pojęcia jak to działa ale działa XD
+    def increase_time(self):
         current_time = pyg.time.get_ticks()
         if current_time > self.settings.time_shit:
             self.settings.time_shit = current_time + 1000
@@ -651,7 +575,6 @@ class Graphics:
             settupg.score += all_passive
             settupg.score = round(settupg.score, 1)
 
-
     def format_text(self,score):
         score_str = str(score)
         signs = []
@@ -659,7 +582,6 @@ class Graphics:
         if score >= 1000 and score < 10000:
             score_formated = f'{signs[0]},{signs[1]}{signs[2]}K'
             return score_formated
-
 
         elif score >= 10000 and score < 100000:
             score_formated = f'{signs[0]}{signs[1]},{signs[2]}K'
@@ -692,7 +614,6 @@ class Graphics:
         elif score >= 100000000000 and score < 1000000000000:
             score_formated = f'{signs[0]}{signs[1]}{signs[2]}B'
             return score_formated
-
 
         elif score >= 1000000000000 and score < 10000000000000:
             score_formated = f'{signs[0]},{signs[1]}{signs[2]}T'
@@ -756,4 +677,3 @@ class Graphics:
                 score_formated += value
 
             return score_formated
-

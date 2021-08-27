@@ -1,11 +1,11 @@
 import json
 
 
-
 def load_save():
     with open('save.json') as file:
         save = json.load(file)
         return save
+
 def save_save(save):
     with open('save.json', 'w') as file:
         save['score'] = score
@@ -72,7 +72,7 @@ def save_save(save):
         save['emerald_passive_income'] = emerald_passive_income
         save['rubin_passive_income'] = rubin_passive_income
         save['jadeit_passive_income'] = jadeit_passive_income
-        save['amethyst_passive_income']   = amethyst_passive_income
+        save['amethyst_passive_income'] = amethyst_passive_income
         save['base_click'] = base_click
         save['iron_click'] = iron_click
         save['copper_click'] = copper_click
@@ -85,11 +85,9 @@ def save_save(save):
         save['amethyst_click'] = amethyst_click
         json.dump(save, file, indent=4)
 
+
 save = load_save()
 score = save['score']
-
-
-
 
 iron_ore = save['iron_ore']
 iron_pickaxe = save['iron_pickaxe']
@@ -118,8 +116,6 @@ jadeit_pickaxe = save['jadeit_pickaxe']
 amethyst_ore = save['amethyst_ore']
 amethyst_pickaxe = save['amethyst_pickaxe']
 
-
-
 iron_ore_cost = save['iron_ore_cost']
 iron_pickaxe_cost = save['iron_pickaxe_cost']
 
@@ -146,9 +142,6 @@ jadeit_pickaxe_cost = save['jadeit_pickaxe_cost']
 
 amethyst_ore_cost = save['amethyst_ore_cost']
 amethyst_pickaxe_cost = save['amethyst_pickaxe_cost']
-
-
-
 
 iron_ore_multiplier = save['iron_ore_multiplier']
 iron_pickaxe_multiplier = save['iron_pickaxe_multiplier']
@@ -177,11 +170,7 @@ jadeit_pickaxe_multiplier = save['jadeit_pickaxe_multiplier']
 amethyst_ore_multiplier = save['amethyst_ore_multiplier']
 amethyst_pickaxe_multiplier = save['amethyst_pickaxe_multiplier']
 
-
-
 all_passive = save['all_passive']
-
-
 
 iron_passive_income = save['iron_passive_income']
 copper_passive_income = save['copper_passive_income']
@@ -204,15 +193,3 @@ emerald_click = save['emerald_click']
 rubin_click = save['rubin_click']
 jadeit_click = save['jadeit_click']
 amethyst_click = save['amethyst_click']
-
-
-
-
-
-
-
-
-
-
-
-

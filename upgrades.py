@@ -1,13 +1,7 @@
-from sys import settrace
-import pygame as pyg
-import settings
 import upgradesettings as settupg
 
 
-
-
-
-class Upgrades():
+class Upgrades:
 
     def increase_score(self):
         all_click = (settupg.iron_click + settupg.copper_click + settupg.silver_click +
@@ -17,12 +11,6 @@ class Upgrades():
         settupg.score += all_click
         settupg.score = round(settupg.score, 1)
         print(f'Click {all_click}\n Passive {settupg.all_passive}')
-
-
-            
-            
-
-
 
     def buy_iron_pickaxe(self):
         if settupg.score < settupg.iron_pickaxe_cost:
@@ -57,7 +45,6 @@ class Upgrades():
                 settupg.iron_click = (settupg.iron_pickaxe_multiplier * settupg.iron_pickaxe) * 3
                 settupg.score -= settupg.iron_pickaxe_cost
                 settupg.iron_pickaxe_cost = 17 * (1.06)**settupg.iron_pickaxe
-
 
     def buy_copper_pickaxe(self):
 
@@ -234,7 +221,6 @@ class Upgrades():
                 settupg.score -= settupg.emerald_pickaxe_cost
                 settupg.emerald_pickaxe_cost = 146202 * (1.16)**settupg.emerald_pickaxe
 
-
     def buy_rubin_pickaxe(self):
 
         if settupg.score < settupg.rubin_pickaxe_cost:
@@ -269,7 +255,6 @@ class Upgrades():
                 settupg.rubin_click = (settupg.rubin_pickaxe_multiplier * settupg.rubin_pickaxe) * 3
                 settupg.score -= settupg.rubin_pickaxe_cost
                 settupg.rubin_pickaxe_cost = 819374 * (1.18)**settupg.rubin_pickaxe
-
 
     def buy_jadeit_pickaxe(self):
 
@@ -375,6 +360,7 @@ class Upgrades():
                 settupg.score -= settupg.iron_ore_cost
                 settupg.iron_ore_cost = 5 * (1.05)**settupg.iron_ore
             print(settupg.iron_ore_cost)
+
     def buy_copper_ore(self):
         if settupg.score < settupg.copper_ore_cost:
             pass

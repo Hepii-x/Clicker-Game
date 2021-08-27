@@ -6,7 +6,3 @@ class Settings():
         self.upgrade_button_color = (255,0,0)
         self.time_shit = 0
         self.upgrade_passive_button_color = (255,0,0)
-
-
-
-        
