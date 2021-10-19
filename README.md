@@ -4,7 +4,6 @@
 * [Images](#images)
 * [Contact](#contact)
 * [Technologies](#technologies)
-* [Download](#download)
 ## General info
 Simple clicker game with mine theme. Just press on rock ^_^
 
@@ -20,5 +19,3 @@ Discord: Hepii#2137 <br />
 * Python
 * PyGame
 
-## Download
-  <a href="https://www54.zippyshare.com/d/El9s4xwC/43874/Clicker.rar">Download</a>
