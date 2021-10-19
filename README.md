@@ -15,7 +15,6 @@ Simple clicker game with mine theme. Just press on rock ^_^
 
 ## Contact
 Discord: Hepii#2137 <br />
-Mail: maciej.szustakowski71@gmail.com
 
 ## Technologies
 * Python
