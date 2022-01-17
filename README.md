@@ -13,7 +13,7 @@ Simple clicker game with mine theme. Just press on rock ^_^
 ![3](./data/3.png)<br />
 
 ## Contact
-Discord: Hepii#2137 <br />
+Discord: Hepii#9767<br />
 
 ## Technologies
 * Python
